@@ -1,29 +1,113 @@
-<script>
-  // Existing loadLesson function for loading built-in curriculum lessons
-  function loadLesson(currentLessonId) {
-    // ...existing code to load lessons 1-5...
-
-    // New integration to load external lessons if currentLessonId > 5
-    if (currentLessonId > 5) {
-      loadExternalLesson(currentLessonId);
-    }
-  }
-
-  // New function to fetch external lessons from the JSON file
-  function loadExternalLesson(currentLessonId) {
-    fetch('30_lessons_english_course.json')
-      .then(response => response.json())
-      .then(data => {
-        // Assuming data is an array of lessons and you want lesson at index (currentLessonId - 6)
-        const lesson = data[currentLessonId - 6];
-        if (lesson) {
-          // Process and display the lesson as needed
-          console.log('Loaded external lesson:', lesson);
-          // ...additional code to display the lesson...
-        } else {
-          console.error('Lesson not found!');
+<html>
+<head>
+    <title>My Enhanced Web Page</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ece9e6, #ffffff);
+            font-family: 'Arial', sans-serif;
         }
-      })
-      .catch(error => console.error('Error fetching the external lessons:', error));
-  }
-</script>
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        button {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        button:focus:after {
+            transform: scale(0);
+        }
+        button:focus:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            animation: ripple 0.6s linear;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: calc(100% - 22px);
+            transition: box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+        }
+
+        nav {
+            background: #333;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Exercises</a>
+        <a href="#">Tests</a>
+    </nav>
+    <h1>Welcome to My Enhanced Web Page</h1>
+    <div class="card">
+        <h2>Exercise Card</h2>
+        <p>This is an improved exercise card with better design and interactivity.</p>
+        <button>Start Exercise</button>
+    </div>
+    <div class="card">
+        <h2>Test Card</h2>
+        <p>This is an improved test card with enhanced visuals.</p>
+        <button>Start Test</button>
+    </div>
+    <input type="text" placeholder="Enter your name" />
+</body>
+</html>
