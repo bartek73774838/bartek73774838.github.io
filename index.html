@@ -9,19 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0d0d0d;
-  --surface: #161616;
-  --surface2: #1f1f1f;
-  --border: #2a2a2a;
-  --accent: #c8a96e;
-  --accent2: #7eb8d4;
-  --accent3: #b87e7e;
-  --text: #e8e4dc;
-  --text2: #9a9590;
-  --text3: #5a5650;
-  --success: #6dbf8a;
-  --error: #d97474;
-  --warning: #d4a853;
+  --bg: #fdf0f3;
+  --surface: #ffffff;
+  --surface2: #fce8ed;
+  --border: #f0c8d4;
+  --accent: #c0395a;
+  --accent2: #7a6abf;
+  --accent3: #d4856a;
+  --text: #2d1a22;
+  --text2: #6b3d50;
+  --text3: #a07080;
+  --success: #3a9e6a;
+  --error: #c0394a;
+  --warning: #c07830;
   --radius: 4px;
 }
 
@@ -29,7 +29,8 @@
 
 body {
 font-family: ‘DM Sans’, sans-serif;
-background: var(–bg);
+background: linear-gradient(135deg, #fdf0f3 0%, #fce8ed 50%, #f8e0ea 100%);
+background-attachment: fixed;
 color: var(–text);
 min-height: 100vh;
 font-size: 15px;
@@ -42,14 +43,15 @@ line-height: 1.6;
 .sidebar {
 width: 220px;
 min-height: 100vh;
-background: var(–surface);
-border-right: 1px solid var(–border);
+background: #ffffff;
+border-right: 2px solid var(–border);
 display: flex;
 flex-direction: column;
 position: fixed;
 top: 0; left: 0; bottom: 0;
 z-index: 100;
 transition: transform 0.3s ease;
+box-shadow: 2px 0 12px rgba(192,57,90,0.08);
 }
 
 .sidebar-logo {
@@ -425,27 +427,28 @@ user-select: none;
 
 .btn-primary {
 background: var(–accent);
-color: var(–bg);
+color: #ffffff;
 border-color: var(–accent);
+box-shadow: 0 2px 8px rgba(192,57,90,0.3);
 }
 
-.btn-primary:hover { background: #d4b87a; }
+.btn-primary:hover { background: #a8304e; box-shadow: 0 4px 12px rgba(192,57,90,0.4); }
 
 .btn-ghost {
-background: transparent;
+background: #ffffff;
 color: var(–text2);
 border-color: var(–border);
 }
 
-.btn-ghost:hover { border-color: var(–text2); color: var(–text); }
+.btn-ghost:hover { border-color: var(–accent); color: var(–accent); background: #fff5f7; }
 
 .btn-accent2 {
-background: rgba(126,184,212,0.1);
+background: rgba(122,106,191,0.1);
 color: var(–accent2);
-border-color: rgba(126,184,212,0.3);
+border-color: rgba(122,106,191,0.3);
 }
 
-.btn-accent2:hover { background: rgba(126,184,212,0.2); }
+.btn-accent2:hover { background: rgba(122,106,191,0.2); }
 
 .btn-sm {
 padding: 6px 12px;
